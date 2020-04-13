@@ -2,6 +2,13 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
+
+//db setup
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync')
+const adapter = new FileSync('./db.json')
+const db = low(adapter)
+
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console, {
